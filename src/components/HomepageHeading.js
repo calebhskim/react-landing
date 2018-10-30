@@ -7,6 +7,7 @@ import {
   Input
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import validator from 'validator';
 
 class HomepageHeading extends React.Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class HomepageHeading extends React.Component {
   render() {
     const { email } = this.state; 
     const { mobile, signup } = this.props
+    const isValid = validator.isEmail(email);
+
     return (
       <Container text>
         <Header
@@ -50,11 +53,16 @@ class HomepageHeading extends React.Component {
             marginTop: mobile ? '0.5em' : '1.5em',
           }}
         />
-        <Input onChange={this.handleEmailUpdate} />
-        <Button primary onClick={() => signup(email)}>
-          Sign Up!
-          <Icon name='right arrow' />
-        </Button>
+        <Input
+          error={!isValid && email !== ''}
+          onChange={this.handleEmailUpdate} action={
+            <Button disabled={!isValid || email === ''} primary onClick={() => signup(email)}>
+              Sign Up!
+              <Icon name='right arrow' />
+            </Button>
+          }
+          placeholder='email'
+        />
       </Container>
     );
   }

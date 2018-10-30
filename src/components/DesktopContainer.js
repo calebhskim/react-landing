@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import {
-  Responsive,
-  Segment,
-  Menu,
   Container,
-  Button,
+  Menu,
+  Responsive,
   Visibility
 } from 'semantic-ui-react';
 
@@ -29,33 +27,18 @@ class DesktopContainer extends Component {
           onBottomPassed={this.showFixedMenu}
           onBottomPassedReverse={this.hideFixedMenu}
         >
-          <Segment
-            inverted
-            textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
-            vertical
+          <Menu
+            fixed={fixed ? 'top' : null}
+            inverted={!fixed}
+            secondary={!fixed}
+            size='large'
           >
-            <Menu
-              fixed={fixed ? 'top' : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size='large'
-            >
-              <Container>
-                <Menu.Item>Fountain</Menu.Item>
-                <Menu.Item>About</Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
-              </Container>
-            </Menu>
-            <HomepageHeading signup={signup} />
-          </Segment>
+            <Container>
+              <Menu.Item>Fountain</Menu.Item>
+            </Container>
+          </Menu>
+          <HomepageHeading signup={signup} />
         </Visibility>
-
         {children}
       </Responsive>
     )
