@@ -6,7 +6,10 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
+import Analytics from './Analytics';
+import Chat from './Chat';
 import DesktopContainer from './DesktopContainer';
+import Map from './Map';
 import MobileContainer from './MobileContainer';
 
 const ResponsiveContainer = ({ children, signup }) => (
@@ -25,7 +28,8 @@ const HomepageLayout = (props) => (
     <Container className='points'>
       <Grid divided inverted stackable>
         <Grid.Row>
-          <Grid.Column width={5}>
+          <Grid.Column className='point' width={5}>
+            <Analytics />
             <Header as='h4' inverted>
               Footer Header
             </Header>
@@ -33,7 +37,8 @@ const HomepageLayout = (props) => (
               Extra space for a call to action inside the footer that could help re-engage users.
             </p>
           </Grid.Column>
-          <Grid.Column width={5}>
+          <Grid.Column className='point' width={5}>
+            <Chat />
             <Header as='h4' inverted>
               Footer Header
             </Header>
@@ -41,7 +46,8 @@ const HomepageLayout = (props) => (
               Extra space for a call to action inside the footer that could help re-engage users.
             </p>
           </Grid.Column>
-          <Grid.Column width={5}>
+          <Grid.Column className='point' width={5}>
+            <Map />
             <Header as='h4' inverted>
               Footer Header
             </Header>
