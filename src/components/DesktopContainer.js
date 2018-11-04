@@ -47,6 +47,7 @@ class DesktopContainer extends Component {
 
 DesktopContainer.propTypes = {
   children: PropTypes.node,
+  signup: PropTypes.func,
 };
 
 export default DesktopContainer;

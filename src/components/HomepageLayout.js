@@ -6,10 +6,10 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-import Analytics from './Analytics';
-import Chat from './Chat';
+import Analytics from './animations/Analytics';
+import Chat from './animations/Chat';
 import DesktopContainer from './DesktopContainer';
-import Map from './Map';
+import Map from './animations/Map';
 import MobileContainer from './MobileContainer';
 
 const ResponsiveContainer = ({ children, signup }) => (
@@ -21,6 +21,7 @@ const ResponsiveContainer = ({ children, signup }) => (
 
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,
+  signup: PropTypes.func,
 }
 
 const HomepageLayout = (props) => (
@@ -60,4 +61,9 @@ const HomepageLayout = (props) => (
     </Container>
   </ResponsiveContainer>
 )
+
+HomepageLayout.propTypes = {
+  signup: PropTypes.func,
+}
+
 export default HomepageLayout;

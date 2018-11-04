@@ -70,6 +70,7 @@ class HomepageHeading extends React.Component {
 
 HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
+  signup: PropTypes.func,
 };
 
 export default HomepageHeading;

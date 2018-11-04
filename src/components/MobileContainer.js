@@ -29,6 +29,7 @@ class MobileContainer extends Component {
 
 MobileContainer.propTypes = {
   children: PropTypes.node,
+  signup: PropTypes.func,
 }
 
 export default MobileContainer;
