@@ -43,3 +43,11 @@ body {
   justify-content: center;
   align-items: center; 
 }
+
+.resume .one {
+  opacity: 0.0;
+}
+
+.resume .two {
+  opacity: 0.0;
+}
