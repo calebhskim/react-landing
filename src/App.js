@@ -5,9 +5,10 @@ import './App.css';
 
 class App extends Component {
   render() {
+    const { appKey, signup } = this.props;
     return (
       <div className="App">
-        <HomepageLayout signup={this.props.signup} />
+        <HomepageLayout appKey={appKey} signup={signup} />
       </div>
     );
   }

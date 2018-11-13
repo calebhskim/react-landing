@@ -12,20 +12,21 @@ import DesktopContainer from './DesktopContainer';
 import Map from './animations/Map';
 import MobileContainer from './MobileContainer';
 
-const ResponsiveContainer = ({ children, signup }) => (
+const ResponsiveContainer = ({ appKey, children, signup }) => (
   <div>
-    <DesktopContainer signup={signup}>{children}</DesktopContainer>
-    <MobileContainer signup={signup}>{children}</MobileContainer>
+    <DesktopContainer appKey={appKey} signup={signup}>{children}</DesktopContainer>
+    <MobileContainer appKey={appKey} signup={signup}>{children}</MobileContainer>
   </div>
 )
 
 ResponsiveContainer.propTypes = {
+  appKey: PropTypes.string,
   children: PropTypes.node,
   signup: PropTypes.func,
 }
 
 const HomepageLayout = (props) => (
-  <ResponsiveContainer signup={props.signup}>
+  <ResponsiveContainer appKey={props.appKey} signup={props.signup}>
     <Container className='points'>
       <Grid divided inverted stackable>
         <Grid.Row>

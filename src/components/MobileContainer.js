@@ -11,13 +11,13 @@ import HomepageHeading from './HomepageHeading';
 
 class MobileContainer extends Component {
   render() {
-    const { children, signup } = this.props
+    const { appKey, children, signup } = this.props
 
     return (
       <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
         <Container>
           <Menu inverted secondary size='large'>
-            <Menu.Item>Fountain</Menu.Item>
+            <Menu.Item>{appKey}</Menu.Item>
           </Menu>
         </Container>
         <HomepageHeading mobile signup={signup} />

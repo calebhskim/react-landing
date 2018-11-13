@@ -17,7 +17,7 @@ class DesktopContainer extends Component {
   showFixedMenu = () => this.setState({ fixed: true })
 
   render() {
-    const { children, signup } = this.props
+    const { appKey, children, signup } = this.props
     const { fixed } = this.state
 
     return (
@@ -34,7 +34,7 @@ class DesktopContainer extends Component {
             size='large'
           >
             <Container>
-              <Menu.Item>Fountain</Menu.Item>
+              <Menu.Item>{appKey}</Menu.Item>
             </Container>
           </Menu>
           <HomepageHeading signup={signup} />

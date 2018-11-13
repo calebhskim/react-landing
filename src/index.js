@@ -24,5 +24,5 @@ const signup = (email) => {
   });
 };
 
-ReactDOM.render(<App signup={signup}/>, document.getElementById('root'));
+ReactDOM.render(<App appKey={appKey} signup={signup}/>, document.getElementById('root'));
 registerServiceWorker();
