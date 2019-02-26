@@ -17,11 +17,10 @@ const config = {
 };
 
 firebase.initializeApp(config);
-const signup = (email) => {
-  const newEmail = firebase.database().ref(`${appKey}/`).push();
-  newEmail.set({
-    email,
-  });
+const signup = (email, onSignup) => {
+  firebase.database().ref(`${appKey}/`).push({
+      email,
+  }, onSignup);
 };
 
 ReactDOM.render(<App appKey={appKey} signup={signup}/>, document.getElementById('root'));

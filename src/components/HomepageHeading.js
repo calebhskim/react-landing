@@ -14,8 +14,11 @@ class HomepageHeading extends React.Component {
     super(props);
 
     this.handleEmailUpdate = this.handleEmailUpdate.bind(this);
+    this.onSignup = this.onSignup.bind(this);
+    this.onSignupAgain = this.onSignupAgain.bind(this);
     this.state = {
       email: '',
+      signedUp: false,
     };
   }
   
@@ -25,8 +28,21 @@ class HomepageHeading extends React.Component {
     });
   }
 
+  onSignup() {
+    this.setState({
+      signedUp: true,
+    });
+  }
+
+  onSignupAgain() {
+    this.setState({
+      email: '',
+      signedUp: false,
+    });
+  }
+
   render() {
-    const { email } = this.state; 
+    const { email, signedUp } = this.state; 
     const { mobile, signup } = this.props
     const isValid = validator.isEmail(email);
 
@@ -55,14 +71,29 @@ class HomepageHeading extends React.Component {
         />
         <Input
           error={!isValid && email !== ''}
-          onChange={this.handleEmailUpdate} action={
-            <Button disabled={!isValid || email === ''} primary onClick={() => signup(email)}>
+          onChange={this.handleEmailUpdate}
+          action={
+            <Button
+              disabled={!isValid || email === '' || signedUp}
+              primary
+              onClick={() => signup(email, this.onSignup)}
+            >
               Sign Up!
               <Icon name='right arrow' />
             </Button>
           }
           placeholder='email'
+          value={email}
         />
+        {signedUp &&
+        <Header
+          as='h4'
+          content={<a onClick={() => this.onSignupAgain()}>You're signed up! Sign up again?</a>}
+          inverted
+          style={{
+            fontWeight: 'normal',
+          }}
+        />}
       </Container>
     );
   }
